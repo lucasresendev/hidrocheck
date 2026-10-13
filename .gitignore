@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+
+# Temporary scratch scripts
+.agent/
+
+# Dependencies & Build artifacts
+node_modules/
+dist/
