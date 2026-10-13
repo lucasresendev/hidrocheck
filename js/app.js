@@ -56,6 +56,7 @@ export function runInternalSelfTests() {
             NotifyUI.refreshSliderTracks();
             UIController.refresh(false, false);
             AlertEngine.renderHistory();
+            SimulatorController.syncSpeedUI();
         } else {
             console.warn('[HidroCheck] Elementos estruturais ausentes:', missing);
         }

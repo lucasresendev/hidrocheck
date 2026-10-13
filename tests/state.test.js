@@ -64,3 +64,21 @@ test('SimulatorController: applyPreset aplica valores do cenário corretamente',
     assert.strictEqual(state.activePreset, 'normal');
     assert.strictEqual(state.waterLevelPercent, 78);
 });
+
+test('SimulatorController: setSpeed atualiza simSpeedMultiplier com validação', async () => {
+    const { SimulatorController } = await import('../js/simulator.js');
+    AppState.init();
+
+    SimulatorController.setSpeed(60);
+    assert.strictEqual(AppState.get().simSpeedMultiplier, 60);
+
+    SimulatorController.setSpeed(1);
+    assert.strictEqual(AppState.get().simSpeedMultiplier, 1);
+
+    SimulatorController.setSpeed(15);
+    assert.strictEqual(AppState.get().simSpeedMultiplier, 15);
+
+    // Valor inválido deve fazer fallback para 15
+    SimulatorController.setSpeed(999);
+    assert.strictEqual(AppState.get().simSpeedMultiplier, 15);
+});

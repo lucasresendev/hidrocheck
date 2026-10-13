@@ -6,6 +6,31 @@ import { NotifyUI } from './notify.js';
 import { ChartRenderer } from './chart.js';
 
 export const SimulatorController = {
+    setSpeed(mult) {
+        const state = AppState.get();
+        const validMultiplier = [1, 15, 60].includes(mult) ? mult : 15;
+        state.simSpeedMultiplier = validMultiplier;
+        AppState.save();
+
+        this.syncSpeedUI();
+        NotifyUI.showToast(`Velocidade da simulação: ${validMultiplier}x`, 'info');
+    },
+
+    syncSpeedUI() {
+        if (typeof document === 'undefined') return;
+        const state = AppState.get();
+        const activeMultiplier = state.simSpeedMultiplier || 15;
+
+        [1, 15, 60].forEach(m => {
+            const btn = document.getElementById(`speed-btn-${m}`);
+            if (btn) {
+                btn.className = m === activeMultiplier
+                    ? 'px-2 py-1 rounded-lg bg-sky-500 text-white shadow-sm'
+                    : 'px-2 py-1 rounded-lg text-slate-400 hover:text-white transition-all';
+            }
+        });
+    },
+
     applyPreset(presetKey) {
         return this.setPreset(presetKey);
     },
