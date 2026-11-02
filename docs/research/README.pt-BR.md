@@ -11,9 +11,9 @@
 
 ---
 
-## 📅 Como Organizamos a Pesquisa
+## 📚 Como Organizamos a Pesquisa
 
-Até o dia **29 de agosto de 2026**, nosso grupo (Abner, Esmyrna, Felipe, Gabriel, Lucas e Matheus) ficou pensando em ideias de projeto, conversando sobre problemas do dia a dia e decidimos focar no monitoramento de caixas d'água residenciais.
+Na etapa inicial do projeto, nosso grupo (Abner, Esmyrna, Felipe, Gabriel, Lucas e Matheus) conversou sobre problemas do dia a dia, discutiu ideias e decidiu focar no monitoramento de caixas d'água residenciais.
 
 Para não fazer apenas buscas soltas na internet, procuramos uma forma mais organizada de estruturar o que a gente precisava levantar:
 
@@ -102,3 +102,44 @@ Depois de ler os textos gerados pelas pesquisas, descartamos as partes que eram 
 - **Sensor Ultrassônico (`HC-SR04` ou `JSN-SR04T`):** Fica na tampa da caixa d'água apontado para baixo. Ele emite um pulso de som e mede o tempo até o eco voltar quando bate na água. Com essa distância em centímetros, subtraímos da altura da caixa para achar a porcentagem de água sem encostar nela.
 - **Sensor de Vazão (`YF-S201` de 1/2"):** Fica instalado no cano. Quando a água passa, gira uma pequena hélice lá dentro que manda pulsos elétricos para a placa calcular quantos litros por minuto (`L/min`) estão passando.
 - **Aviso de Vazamento à Noite:** Se o sensor de vazão continuar marcando passagem de água de madrugada (quando todo mundo na casa está dormindo), o sistema avisa que pode haver um vazamento oculto.
+
+### 4. Tabela de Perdas por Microvazamentos Domésticos (Dados Sabesp)
+
+Para entender o tamanho do prejuízo financeiro causado por vazamentos não percebidos, levantamos as estimativas oficiais de perda da Sabesp:
+
+| Tipo de Vazamento Doméstico | Perda Estimada por Dia | Perda Projetada no Mês | Impacto na Conta de Água |
+| :--- | :--- | :--- | :--- |
+| **Torneira gotejando devagar** | ~46 litros / dia | ~1.380 litros / mês | Pequeno acréscimo |
+| **Torneira gotejando rápido** | ~140 litros / dia | ~4.200 litros / mês | Aumento visível |
+| **Torneira com filete contínuo (1 mm)** | ~2.000 litros / dia | ~60.000 litros / mês | Salto tarifário abusivo |
+| **Vaso sanitário (válvula com pequeno vazamento)** | ~400 litros / dia | ~12.000 litros / mês | Pode dobrar a conta |
+| **Vaso sanitário (caixa acoplada desregulada)** | ~450 litros / dia | ~13.500 litros / mês | Pode dobrar a conta |
+| **Boia travada / transbordo pelo ladrão** | até 10.000 litros / dia | até 300.000 litros / mês | Colapso orçamentário |
+
+---
+
+## 📚 Fontes e Referências Consultadas
+
+Abaixo estão reunidas as fontes institucionais, artigos acadêmicos e manuais de componentes que consultamos durante a pesquisa do projeto:
+
+### 1. Saneamento e Dados Hídricos Nacionais
+- **SNIS (Sistema Nacional de Informações sobre Saneamento):** *Diagnóstico dos Serviços de Água e Esgoto*. Ministério do Desenvolvimento Regional.
+- **Instituto Trata Brasil / GO Associados (2024):** *Estudo de Perdas de Água no Brasil (Base SNIS)*. [Acessar estudo em PDF](https://tratabrasil.org.br/wp-content/uploads/2024/06/Estudo-da-GO-Associados-Perdas-de-Agua-de-2024.pdf).
+- **AESBE (2023):** *Desperdício de água potável no Brasil e perdas financeiras*. [Portal AESBE](https://aesbe.org.br/desperdicio-de-agua-potavel-aumenta-no-brasil-e-perdas-chegam-a-mais-de-r-10-bilhoes-ao-ano-aponta-estudo-2/).
+- **SABESP:** *Boletins Técnicos e Dicas de Uso Racional da Água*.
+
+### 2. Metodologia e Engenharia de Software
+- **PEFFERS, K. et al. (2007):** *A Design Science Research Methodology for Information Systems Research*. Journal of Management Information Systems.
+- **PRESSMAN, R. S.; MAXIM, B. R. (2021):** *Engenharia de Software: Uma Abordagem Profissional*. 9. ed. Porto Alegre: AMGH.
+
+### 3. Componentes Eletrônicos e Manuais Técnicos
+- **Eletrogate:** *Módulo sensor de distância ultrassônico HC-SR04*. [Manual e Especificação](https://www.eletrogate.com/modulo-sensor-de-distancia-ultrassonico-hc-sr04).
+- **Eletrogate:** *Sensor de fluxo de água de 1/2" YF-S201*. [Manual e Especificação](https://www.eletrogate.com/sensor-de-fluxo-de-agua-de-1-2).
+- **RoboCore:** *NodeMCU ESP8266-12 V2 - WiFi*. [Pinout e Documentação](https://www.robocore.net/wifi/nodemcu-esp8266-12-v2).
+- **Zap Imóveis (2024):** *Vai colocar uma nova caixa d’água em casa? Veja os cuidados importantes*. [Artigo](https://www.zapimoveis.com.br/blog/casa-e-decoracao/arquitetura/vai-colocar-uma-nova-caixa-dagua-em-casa-veja-os-cuidados-importantes/).
+
+### 4. Artigos Científicos sobre IoT e Telemetria
+- **Frontiers in Water (2025):** *IoT enabled smart water metering using multi-sensor data fusion*. [Artigo](https://www.frontiersin.org/journals/water/articles/10.3389/frwa.2025.1586916/full).
+- **MDPI Sensors (2016):** *Contextualising Water Use in Residential Settings: A Survey of Non-Intrusive Disaggregation*. [Artigo](https://www.mdpi.com/1424-8220/16/5/738).
+- **IRJMETS (2024):** *IoT-driven Intelligent Water Distribution and Monitoring System*. [Artigo](https://www.irjmets.com/upload_newfiles/irjmets80100093245/paper_file/irjmets80100093245.pdf).
+- **PMC NCBI (2020):** *Smart water consumption measurement system for houses using IoT*. [Artigo](https://pmc.ncbi.nlm.nih.gov/articles/PMC7455589/).

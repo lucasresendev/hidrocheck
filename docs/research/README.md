@@ -11,9 +11,9 @@
 
 ---
 
-## 📅 How We Organized the Research
+## 📚 How We Organized the Research
 
-Until **August 29, 2026**, our group (Abner, Esmyrna, Felipe, Gabriel, Lucas, and Matheus) spent time brainstorming project ideas, talking about everyday problems, and decided to focus on monitoring residential water tanks.
+During the initial stage of the project, our group (Abner, Esmyrna, Felipe, Gabriel, Lucas, and Matheus) spent time brainstorming ideas, discussing everyday problems, and decided to focus on monitoring residential water tanks.
 
 Instead of just doing random searches online, we looked for a structured way to organize what we needed to investigate:
 
@@ -102,3 +102,44 @@ After reading through the research results, we discarded the parts that were too
 - **Ultrasonic Sensor (`HC-SR04` or `JSN-SR04T`):** Sits on the top lid of the water tank pointing down. It sends a sound pulse and measures the time for the echo to bounce back off the water. Using that distance in centimeters, we subtract it from the tank height to find the water percentage without touching the water.
 - **Flow Sensor (`YF-S201` 1/2"):** Installed inline in the pipe. As water flows through, it spins a small internal pinwheel that sends electrical pulses to the board to calculate how many liters per minute (`L/min`) are passing.
 - **Night Leak Alert:** If the flow sensor keeps registering water passing late at night (when everyone in the house is asleep), the system warns that there may be a hidden leak.
+
+### 4. Household Leak Waste Estimates (Sabesp Data)
+
+To understand the financial impact caused by unseen leaks, we surveyed official loss estimates published by sanitation utility Sabesp:
+
+| Household Leak Type | Estimated Daily Loss | Projected Monthly Loss | Water Bill Impact |
+| :--- | :--- | :--- | :--- |
+| **Slow dripping faucet** | ~46 liters / day | ~1,380 liters / month | Minor increase |
+| **Fast dripping faucet** | ~140 liters / day | ~4,200 liters / month | Noticeable increase |
+| **Continuous thin stream (1 mm)** | ~2,000 liters / day | ~60,000 liters / month | Drastic tariff jump |
+| **Toilet valve with minor leak** | ~400 liters / day | ~12,000 liters / month | Can double the bill |
+| **Defective dual-flush toilet tank** | ~450 liters / day | ~13,500 liters / month | Can double the bill |
+| **Stuck float / overflow pipe spill** | up to 10,000 liters / day | up to 300,000 liters / month | Budget collapse |
+
+---
+
+## 📚 Consulted Sources & References
+
+Below are the institutional reports, academic papers, and component datasheets consulted during the project research:
+
+### 1. Sanitation & Brazilian Water Data
+- **SNIS (National Sanitation Information System):** *Diagnostic of Water and Sewage Services*. Brazilian Ministry of Regional Development.
+- **Instituto Trata Brasil / GO Associados (2024):** *Water Loss Study in Brazil (SNIS Base)*. [Access study PDF](https://tratabrasil.org.br/wp-content/uploads/2024/06/Estudo-da-GO-Associados-Perdas-de-Agua-de-2024.pdf).
+- **AESBE (2023):** *Drinking water waste in Brazil and financial losses*. [AESBE Portal](https://aesbe.org.br/desperdicio-de-agua-potavel-aumenta-no-brasil-e-perdas-chegam-a-mais-de-r-10-bilhoes-ao-ano-aponta-estudo-2/).
+- **SABESP:** *Technical Bulletins and Water Conservation Guidelines*.
+
+### 2. Methodology & Software Engineering
+- **PEFFERS, K. et al. (2007):** *A Design Science Research Methodology for Information Systems Research*. Journal of Management Information Systems.
+- **PRESSMAN, R. S.; MAXIM, B. R. (2021):** *Software Engineering: A Practitioner's Approach*. 9th ed. Porto Alegre: AMGH.
+
+### 3. Electronic Components & Technical Manuals
+- **Eletrogate:** *HC-SR04 Ultrasonic Distance Sensor Module*. [Datasheet & Manual](https://www.eletrogate.com/modulo-sensor-de-distancia-ultrassonico-hc-sr04).
+- **Eletrogate:** *YF-S201 1/2" Water Flow Sensor*. [Datasheet & Manual](https://www.eletrogate.com/sensor-de-fluxo-de-agua-de-1-2).
+- **RoboCore:** *NodeMCU ESP8266-12 V2 - WiFi*. [Pinout & Documentation](https://www.robocore.net/wifi/nodemcu-esp8266-12-v2).
+- **Zap Imóveis (2024):** *Installing a new water tank at home? Key precautions*. [Article](https://www.zapimoveis.com.br/blog/casa-e-decoracao/arquitetura/vai-colocar-uma-nova-caixa-dagua-em-casa-veja-os-cuidados-importantes/).
+
+### 4. Scientific Papers on IoT & Smart Water Metering
+- **Frontiers in Water (2025):** *IoT enabled smart water metering using multi-sensor data fusion*. [Paper](https://www.frontiersin.org/journals/water/articles/10.3389/frwa.2025.1586916/full).
+- **MDPI Sensors (2016):** *Contextualising Water Use in Residential Settings: A Survey of Non-Intrusive Disaggregation*. [Paper](https://www.mdpi.com/1424-8220/16/5/738).
+- **IRJMETS (2024):** *IoT-driven Intelligent Water Distribution and Monitoring System*. [Paper](https://www.irjmets.com/upload_newfiles/irjmets80100093245/paper_file/irjmets80100093245.pdf).
+- **PMC NCBI (2020):** *Smart water consumption measurement system for houses using IoT*. [Paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC7455589/).
