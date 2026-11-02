@@ -150,11 +150,10 @@ hidrocheck/
 │       ├── README.md                          # Pesquisas e prompts usados (Inglês)
 │       └── README.pt-BR.md                    # Pesquisas e prompts usados (Português)
 │
+├── CNAME                                      # Configuração de domínio customizado (GitHub Pages)
 ├── index.html                                 # Página do protótipo web (GitHub Pages)
 ├── css/                                       # Arquivos CSS do protótipo web
 ├── js/                                        # Arquivos JS do protótipo web
-├── tests/                                     # Testes automatizados do protótipo web
-├── package.json                               # Comandos para rodar o servidor local e testes
 ├── README.md                                  # Documentação principal (Inglês)
 └── README.pt-BR.md                            # Documentação principal (Português)
 ```
@@ -171,12 +170,11 @@ mkdir -p dist && gcc -Wall src/simulador_logico.c -o dist/simulador_logico && ./
 ```
 
 ### 2. Abrir o Protótipo Web Localmente
+Basta abrir o arquivo `index.html` diretamente no seu navegador, ou subir um servidor local simples:
+
 ```bash
 # Iniciar servidor local na porta 4173
-npm start
-
-# Ou rodar os testes automatizados
-npm test
+python3 -m http.server 4173
 ```
 Depois é só abrir `http://localhost:4173/` no navegador.
 
